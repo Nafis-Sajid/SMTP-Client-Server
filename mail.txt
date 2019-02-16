@@ -1,0 +1,2 @@
+Hello recipient
+This a mail from me
