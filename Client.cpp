@@ -42,7 +42,7 @@ string get_date();
 void data_transfer();
 
 // function to handle QUIT request
-voquit();
+void quit_request();
 
 // main function of client
 int main(int argc, char *args[])
@@ -66,7 +66,7 @@ int main(int argc, char *args[])
     mail_from_request();
     rcpt_to_request();
     data_transfer();
-    quit();
+    quit_request();
     return 0;
 }
 

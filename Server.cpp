@@ -142,8 +142,8 @@ bool helo_request()
     if (info == "HELO")
     {
         data = "250 Service ready.";
+        cout << "S: " << data << endl;
         strcpy(msg, data.c_str());
-        cout << "S: " << msg << endl;
         int ln = send(client_socket_fd, msg, strlen(msg), 0);
         return true;
     }
@@ -187,8 +187,8 @@ bool mail_from_request()
         }
 
         data = "250 OK.";
+        cout << "S: " << data << endl;
         strcpy(msg, data.c_str());
-        cout << "S: " << msg << endl;
         ln = send(client_socket_fd, msg, strlen(msg), 0);
 
         return true;
@@ -235,8 +235,8 @@ bool rcpt_to_request()
         fclose(File);
 
         data = "250 OK.";
+        cout << "S: " << data << endl;
         strcpy(msg, data.c_str());
-        cout << "S: " << msg << endl;
         ln = send(client_socket_fd, msg, strlen(msg), 0);
 
         return true;
@@ -258,8 +258,8 @@ bool data_transfer()
     if (info == "DATA")
     {
         data = "354 OK";
+        cout << "S: " << data << endl;
         strcpy(msg, data.c_str());
-        cout << "S: " << msg << endl;
         ln = send(client_socket_fd, msg, strlen(msg), 0);
         ln = recv(client_socket_fd, msg, MX, 0);
         msg[ln] = '\0';
@@ -310,8 +310,8 @@ bool QUIT_request()
     if (info == "QUIT")
     {
         data = "221 BYE";
+        cout << "S: " << data << endl;
         strcpy(msg, data.c_str());
-        cout << "S: " << msg << endl;
         ln = send(client_socket_fd, msg, strlen(msg), 0);
 
         close(client_socket_fd);
