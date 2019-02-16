@@ -43,7 +43,7 @@ bool rcpt_to_request();
 bool data_transfer();
 
 // function to handle QUIT request
-bool QUIT_request();
+bool quit_request();
 
 // main function of server
 int main(int argc, char *args[])
@@ -77,7 +77,7 @@ int main(int argc, char *args[])
             continue;
         if (!data_transfer())
             continue;
-        if (!QUIT_request())
+        if (!quit_request())
             continue;
     }
 
@@ -304,7 +304,7 @@ bool data_transfer()
     return false;
 }
 
-bool QUIT_request()
+bool quit_request()
 {
     string info = get_message();
     if (info == "QUIT")
